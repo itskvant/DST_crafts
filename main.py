@@ -32,7 +32,12 @@ async def switchlang(ctx: Context):
 
 
 @client.command(aliases=['get_craft', 'get_recipe', 'recipe', 'gc', 'gr'])
-async def craft(ctx: Context, *, item=None):
+async def craft(ctx: Context, *, msg):
+    if len(msg.split()) > 1:
+        item, cnt = ' '.join(msg.split()[:-1]), int(msg.split()[-1])
+    else:
+        item, cnt = msg, 1
+    print(item)
     if not item:
         return await ctx.reply("Укажи предмет!")
     item = item[0].upper() + item[1:].strip().replace(' ', '_')
@@ -43,10 +48,11 @@ async def craft(ctx: Context, *, item=None):
         a_tags = craft_div.find_all("a")
         msg = (f"The resources you'll need to craft \"{item}\" are:\n", f"Для создания \"{item}\" нужно:\n")[lang]
         for resource, count in zip([a_tags[i]["title"] for i in range(len(a_tags))], craft_div.getText().split()):
-            msg += ' '.join([resource, count]) + '\n'
+            msg += ' '.join([resource, "×" + str(int(count[1:]) * cnt)]) + '\n'
         await ctx.reply(msg)
     else:
         await ctx.reply(("I couldn't find this recipe", "Я не нашел такой крафт...")[lang])
+
 
 if __name__ == '__main__':
     client.run(config["Bot"]["token"])

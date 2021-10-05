@@ -20,7 +20,7 @@
 
 ### Дискорд
 - Чтобы сменить язык, введите ```!switchlang``` (доступны русский и английский)
-- Чтобы узнать рецепт, введите ```!craft ПРЕДМЕТ```
+- Чтобы узнать рецепт, введите ```!craft ПРЕДМЕТ КОЛИЧЕСТВО``` (Количество не обязательно)
 
 # English
 
@@ -44,4 +44,4 @@ Follow these steps to install the bot
 
 ### Discord
 - In order to change your language, run ```!switchlang``` (English and Russian languages are available)
-- In order to get a recipe, run ```!craft ITEM```
+- In order to get a recipe, run ```!craft ITEM COUNT``` (Count is not necessary)
