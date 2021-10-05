@@ -36,6 +36,5 @@ def main():
     with open('config.ini', 'w') as configfile:
         config.write(configfile)
     print(("You're good to go! You can launch the bot via running the main.py file", "Настройка завершена! Вы можете запустить бота запустив файл main.py")[lang])
-    print(("Invite the bot to your server with this link: {}")[lang])
 
 main()
